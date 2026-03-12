@@ -52,26 +52,22 @@ class CalculatorSheet extends JPanel {
         ActionListener order = new ActionOrder();
 
         // Add buttons to the panel
-        putButton("7", insert); 
-        putButton("8", insert); 
-        putButton("9", insert); 
-        putButton("/", order);
+        String[] buttons = {
+        	    "7","8","9","/",
+        	    "4","5","6","*",
+        	    "1","2","3","-",
+        	    "0",".","=","+"
+        	};
 
-        putButton("4", insert); 
-        putButton("5", insert); 
-        putButton("6", insert); 
-        putButton("*", order);
+        	for (int i = 0; i < buttons.length; i++) {
+        	    String b = buttons[i];
 
-        putButton("1", insert); 
-        putButton("2", insert); 
-        putButton("3", insert); 
-        putButton("-", order);
-
-        putButton("0", insert); 
-        putButton(".", insert); 
-        putButton("=", order); 
-        putButton("+", order);
-
+        	    if (b.equals("+") || b.equals("-") || b.equals("*") || b.equals("/") || b.equals("=")) {
+        	        putButton(b, order);
+        	    } else {
+        	        putButton(b, insert);
+        	    }
+        	}
         add(sheet2, BorderLayout.CENTER);
 
         // Initial operation is "="
